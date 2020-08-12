@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:zard/constants/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zard/logic/user.dart';
-import 'home.dart';
+import 'package:zard/ui/setup.dart';
 import 'login.dart';
 
 class Register extends StatelessWidget {
@@ -15,13 +15,12 @@ class Register extends StatelessWidget {
         isCustomer: true,
         email: email);
     users.add(newUser);
-    Get.offAll(Home(),
+    Get.offAll(SetUp(),
         arguments: users.length - 1, transition: Transition.cupertino);
   }
 
   @override
   Widget build(BuildContext context) {
-    var countries = ["United States", "Mexico", "Canada"];
     final registerEmailController = TextEditingController();
     final registerUsernameController = TextEditingController();
     final registerPasswordCOntroller = TextEditingController();
@@ -29,6 +28,7 @@ class Register extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: distinctGreen,
+      resizeToAvoidBottomPadding: false,
       body: SafeArea(
         child: Center(
           child: Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:zard/logic/user.dart';
 
 //Data
@@ -9,7 +10,7 @@ Color distinctGreen = Color(0xff366860);
 
 //Dark/Light Theme
 final ThemeData lightTheme = ThemeData(
-    scaffoldBackgroundColor: distinctGreen,
+    scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
       color: Colors.teal,
       iconTheme: IconThemeData(
@@ -38,7 +39,7 @@ final ThemeData lightTheme = ThemeData(
         fontSize: 18.0,
       ),
     ),
-    buttonTheme: ButtonThemeData(buttonColor: distinctGreen));
+    buttonTheme: ButtonThemeData(buttonColor: Colors.teal));
 
 final ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: Colors.black,
@@ -70,6 +71,34 @@ final ThemeData darkTheme = ThemeData(
         fontSize: 18.0,
       ),
     ),
-    cursorColor: Colors.white);
+    cursorColor: Colors.white,
+    buttonTheme: ButtonThemeData(buttonColor: Colors.black));
 
 //Fonts
+var heading = GoogleFonts.oswald(
+    textStyle: TextStyle(
+  color: distinctGreen,
+  fontSize: 30,
+));
+
+//Build Widgets
+Widget getOptions(String imageUrl) {
+  return Flexible(
+      flex: 3,
+      fit: FlexFit.tight,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Transform.scale(
+            scale: 1.1,
+            child: Container(
+              width: 50,
+              height: 50,
+              child:
+                  Image.asset('assets/images/$imageUrl', fit: BoxFit.contain),
+            ),
+          ),
+          SizedBox(height: 20),
+        ],
+      ));
+}

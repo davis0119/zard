@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zard/constants/constants.dart';
-import 'package:get/get.dart';
 import 'login.dart';
 import 'package:zard/logic/user.dart';
 
@@ -53,7 +52,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           children: [
             Text(currentUser.name),
             Text(currentUser.email),
-            Text(currentUser.country)
+            Text(currentUser.isCustomer.toString())
           ],
         ),
       ),

@@ -3,30 +3,29 @@ import 'package:get/get.dart';
 import 'package:zard/constants/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zard/logic/controller.dart';
+import 'package:zard/ui/home.dart';
+import 'package:zard/ui/setup.dart';
 import 'register.dart';
-import 'home.dart';
 
 class Login extends StatelessWidget {
   final loginEmailController = TextEditingController();
   final loginPasswordController = TextEditingController();
   final ErrorController errorController = Get.put(ErrorController());
 
-  loginUser(username, password) {
-    print(users.length);
+  void loginUser(username, password) {
     var hasUser = false;
-    for (int i = 0; i < users.length; i++) {
-      print(users.elementAt(i).email);
-      if (users.elementAt(i).email == username &&
-          users.elementAt(i).password == password) {
-        Get.offAll(Home(), transition: Transition.fade, arguments: i);
-        hasUser = true;
-        errorController.hideError();
-        break;
+    if (users.isNotEmpty) {
+      for (int i = 0; i < users.length; i++) {
+        if (users.elementAt(i).email == username &&
+            users.elementAt(i).password == password) {
+          Get.offAll(Home(), transition: Transition.fade, arguments: i);
+          hasUser = true;
+          errorController.hideError();
+          break;
+        }
       }
     }
     if (!hasUser) {
-      Get.snackbar("Incorrect Username or Password",
-          "Please register if you don't have an account");
       errorController.showError();
     }
   }
@@ -65,7 +64,7 @@ class Login extends StatelessWidget {
                       ),
                       decoration: InputDecoration(
                         focusColor: Colors.white,
-                        labelText: 'Username',
+                        labelText: 'Email',
                         labelStyle:
                             TextStyle(color: Colors.white.withOpacity(0.6)),
                         focusedBorder: UnderlineInputBorder(
@@ -101,7 +100,6 @@ class Login extends StatelessWidget {
                         ),
                         color: Colors.white,
                         onPressed: () {
-                          print(users.elementAt(0));
                           loginUser(loginEmailController.text,
                               loginPasswordController.text);
                         },
@@ -119,7 +117,7 @@ class Login extends StatelessWidget {
               GetBuilder<ErrorController>(
                 builder: (_) {
                   return Text(_.errorText,
-                      style: TextStyle(color: Colors.redAccent));
+                      style: TextStyle(color: Colors.redAccent, fontSize: 18));
                 },
               ),
               Spacer(flex: 5)
