@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 import 'package:zard/constants/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zard/logic/controller.dart';
-import 'package:zard/ui/home.dart';
-import 'package:zard/ui/setup.dart';
+import 'package:zard/ui/home/home.dart';
 import 'register.dart';
 
 class Login extends StatelessWidget {
@@ -26,14 +25,14 @@ class Login extends StatelessWidget {
       }
     }
     if (!hasUser) {
-      errorController.showError();
+      Get.snackbar("Error", "Incorrect Password");
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: distinctGreen,
+      backgroundColor: onlyGreen,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -113,13 +112,8 @@ class Login extends StatelessWidget {
                   child: Text("REGISTER",
                       style: GoogleFonts.oswald(
                           textStyle: TextStyle(color: Colors.white))),
-                  onPressed: () => Get.to(Register())),
-              GetBuilder<ErrorController>(
-                builder: (_) {
-                  return Text(_.errorText,
-                      style: TextStyle(color: Colors.redAccent, fontSize: 18));
-                },
-              ),
+                  onPressed: () =>
+                      Get.to(Register(), transition: Transition.noTransition)),
               Spacer(flex: 5)
             ],
           ),

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:zard/constants/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zard/logic/user.dart';
-import 'package:zard/ui/setup.dart';
+import 'package:zard/ui/auth/setup.dart';
 import 'login.dart';
 
 class Register extends StatelessWidget {
@@ -27,7 +27,7 @@ class Register extends StatelessWidget {
     final _formKey = GlobalKey<FormState>();
 
     return Scaffold(
-      backgroundColor: distinctGreen,
+      backgroundColor: onlyGreen,
       resizeToAvoidBottomPadding: false,
       body: SafeArea(
         child: Center(

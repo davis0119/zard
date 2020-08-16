@@ -1,30 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:zard/ui/login.dart';
+import 'package:zard/ui/auth/login.dart';
 import 'package:zard/constants/constants.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: distinctGreen,
+        backgroundColor: onlyGreen,
         body: SafeArea(
           child: Center(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Spacer(),
-                CircleAvatar(
-                  backgroundColor: Colors.white,
-                  radius: 50,
-                ),
-                SizedBox(height: 20),
-                Text(
-                  "ZARD",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                ),
+                Image.asset("assets/images/ZARD.png"),
                 Spacer(),
                 RaisedButton(
                   shape: RoundedRectangleBorder(
@@ -37,7 +27,7 @@ class SplashScreen extends StatelessWidget {
                     ),
                   ),
                   onPressed: () => Get.to(Login()),
-                  color: distinctGreen,
+                  color: onlyGreen,
                 ),
               ],
             ),
