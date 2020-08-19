@@ -1,10 +1,10 @@
 # zard
 
-A new Flutter project.
+A Flutter project to build a mobile application for facilitating and stimulating market flow at the local level -- uplift local businesses affected by the pandemic!
+
+https://devpost.com/software/zard#updates
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
